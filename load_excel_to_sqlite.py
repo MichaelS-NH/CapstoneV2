@@ -5,8 +5,9 @@ import os
 ## URL for Data: https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp?20=E
 
 ## Configuration - this tells the code where to find data from excel, then where to store it.
-excel_path = r"C:\Users\ms307487\OneDrive - North Highland\Tech and Data Training\Capstone\Data\Raw Input\Airline_Delay_Cause.csv"
-sqlite_path = r"C:\Users\ms307487\OneDrive - North Highland\Tech and Data Training\Capstone\air_traffic_db.db"
+
+excel_path = r"Data\Raw Input\ot_delaycause1_DL (1)\Airline_Delay_Cause.csv"
+sqlite_path = r"Data\On_Time_Performance.db"
 table_name = "On_Time_Performance"
 
 ## Bonus points to web scrape
@@ -22,7 +23,7 @@ import os
 if not os.path.exists(excel_path):
     print("File not found! Check the file name or path:", excel_path)
 else:
-    print("File found ✅")
+    print("File found")
 
 # === STEP 1: Load Excel ===
 print("Reading Excel file...")
@@ -51,4 +52,4 @@ count = conn.execute(f"SELECT COUNT(*) FROM {table_name}").fetchone()[0]
 print(f"SQLite table '{table_name}' has {count:,} rows")
 
 conn.close()
-print("Done ✅")
+print("Done")
